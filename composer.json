@@ -1,0 +1,29 @@
+{
+  "name": "company/smallproject",
+  "description": "Small PHP fixes or enhancements.",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0"
+  },
+  "config": {
+    "classmap-authoritative": true,
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "require-dev": {
+    "szepeviktor/phpstan-wordpress": "^0.6.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2"
+  },
+  "scripts": {
+    "test": [
+      "@syntax",
+      "@cs",
+      "@phpstan"
+    ],
+    "syntax": "find ./ -type f -not -path './vendor/*' -name '*.php' -print0|xargs -0 -L1 -P4 -- php -l",
+    "cs": "phpcs -p --parallel=4 src/",
+    "phpstan": "phpstan analyze src/"
+  }
+}

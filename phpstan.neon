@@ -1,0 +1,10 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+    level: 5
+    inferPrivatePropertyTypeFromConstructor: true
+    paths:
+        - ./
+    excludes_analyse:
+        - vendor/
+        - tests/

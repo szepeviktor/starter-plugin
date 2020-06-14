@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="SmallProjectCodingStyle">
+    <description>This is how we code in this project.</description>
+
+    <rule ref="PSR12"/>
+</ruleset>

@@ -1,0 +1,14 @@
+# IDE
+*.swp
+*.kate-swp
+
+# OS
+.DS_Store
+
+# Packages
+/composer.lock
+/vendor/
+/node_modules/
+
+# WordPress
+wp-config.php

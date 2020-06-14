@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.editorconfig export-ignore
+
+#/composer.json export-ignore
+
+/.circleci export-ignore
+/.travis.yml export-ignore
+/.github/ export-ignore
+/phpcs.xml export-ignore
+/phpstan.neon export-ignore
+/tests/ export-ignore
