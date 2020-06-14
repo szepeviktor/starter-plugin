@@ -1,10 +1,10 @@
 # Small PHP fixes or enhancements
 
-This repository help you to get started with very small projects
-that last few hours or few days.
+This repository helps you to get started with very small projects
+lasting few hours or few days.
 
-1. Each project has a separate repository and GitHub Issues
-1. Commits as made with the proper email address registered here on GitHub
+1. Each project should have a separate repository and GitHub Issues
+1. Commits are made with the proper email address registered here on GitHub
 1. Add a (MIT) license in the Initial commit `LICENSE.md`
 1. Set repository Description and Website URL
    with the top right <kbd>Edit</kbd> button
@@ -12,7 +12,7 @@ that last few hours or few days.
 1. Set editor/IDE configuration in `.editorconfig`
 1. List ignored files in `.gitignore`
    Thus do not keep downloaded or generated code in the repository
-1. List files not intended to be ditributed (`export-ignore`) in ZIP archives in `.gitattributes`
+1. List files not intended to be distributed (`export-ignore`) in ZIP archives in `.gitattributes`
 1. Choose a coding standard (PSR-12, WPCS, Laravel) in `phpcs.xml`
 1. Keep source code written in PHP in `/src` directory
    as per [PSR-4](https://www.php-fig.org/psr/psr-4/)
