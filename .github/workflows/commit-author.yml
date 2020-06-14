@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       # https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
       - name: "Get commit email addresses and query GitHub API"
         run: |
