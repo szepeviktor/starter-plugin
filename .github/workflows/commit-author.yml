@@ -15,8 +15,8 @@ jobs:
       # https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
       - name: "Get commit email addresses and query GitHub API"
         run: |
-          git show --no-patch --pretty="format:%ae" "${{ github.event.pull_request.head.sha }}..${{ github.event.pull_request.base.sha }}"
-          git show --no-patch --pretty="format:%ae" "${{ github.event.pull_request.head.sha }}..${{ github.event.pull_request.base.sha }}" \
+          git show --no-patch --pretty="format:%ae" "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          git show --no-patch --pretty="format:%ae" "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" \
             | sort -u \
             | xargs -I "%" -- curl -s -G --data-urlencode "q=type:user in:email %" "${GITHUB_API_USER_SEARCH}" \
             #| grep -Fx '  "total_count": 1,'
