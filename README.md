@@ -3,6 +3,8 @@
 This repository helps you to get started with very small projects
 lasting few hours or few days.
 
+See :woman: :broom: https://tomasvotruba.com/cleaning-lady-checklist/
+
 1. Each project should have a separate repository and GitHub Issues
 1. Commits are made with the proper email address registered here on GitHub
 1. Add a (MIT) license in the Initial commit `LICENSE.md`
