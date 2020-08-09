@@ -3,7 +3,7 @@
 This repository helps you to get started with very small projects
 lasting few hours or few days.
 
-See :woman: :broom: https://tomasvotruba.com/cleaning-lady-checklist/
+See :broom::woman: https://tomasvotruba.com/cleaning-lady-checklist/
 
 1. Each project should have a separate repository and GitHub Issues
 1. Commits are made with the proper email address registered here on GitHub
@@ -15,7 +15,7 @@ See :woman: :broom: https://tomasvotruba.com/cleaning-lady-checklist/
 1. List ignored files in `.gitignore`
    Thus do not keep downloaded or generated code in the repository
 1. List files not intended to be distributed (`export-ignore`) in ZIP archives in `.gitattributes`
-1. Choose a coding standard (PSR-12, WPCS, Laravel) in `phpcs.xml`
+1. Choose a coding standard (PSR-12, WPCS, Laravel) in `phpcs.xml` (include `Generic.PHP.RequireStrictTypes`)
 1. Keep source code written in PHP in `/src` directory
    as per [PSR-4](https://www.php-fig.org/psr/psr-4/)
 1. Use namespaces!
