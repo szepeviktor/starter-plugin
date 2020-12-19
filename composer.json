@@ -4,7 +4,8 @@
   "type": "wordpress-plugin",
   "license": "MIT",
   "require": {
-    "php": ">=7.0"
+    "php": "^7.4",
+    "composer-runtime-api": "^2.0"
   },
   "config": {
     "classmap-authoritative": true,
@@ -13,8 +14,13 @@
     }
   },
   "require-dev": {
-    "szepeviktor/phpstan-wordpress": "^0.6.1",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2"
+    "szepeviktor/phpstan-wordpress": "^0.7.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Company\\WordPress\\PluginName\\": "src/"
+    }
   },
   "scripts": {
     "test": [

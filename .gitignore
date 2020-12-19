@@ -9,6 +9,7 @@
 /composer.lock
 /vendor/
 /node_modules/
+/tools/
 
 # WordPress
 wp-config.php
