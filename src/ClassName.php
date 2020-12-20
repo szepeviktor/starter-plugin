@@ -1,10 +1,12 @@
 <?php
 
 /**
- * Welcome to our nice code!
+ * Welcome to our nice source code!
  */
 
-namespace Company\SmallProject;
+declare(strict_types=1);
+
+namespace Company\WordPress\PluginName;
 
 class ClassName
 {

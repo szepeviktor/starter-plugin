@@ -24,7 +24,7 @@
  */
 
 //: https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict
-declare(strict_types=1);
+// declare(strict_types=1);
 
 //: https://www.php-fig.org/psr/psr-4/#2-specification
 namespace Company\WordPress\PluginName;
@@ -34,17 +34,43 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
+//: Define constants
+define('PLUGIN_NAME_TEXTDOMAIN', 'plugin-name');
+
+//: Load autoloader
+if (! class_exists(Requirements::class) && is_file(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+}
+
+//: Load translations
+\add_action(
+    'init',
+    function () {
+        \load_plugin_textdomain(\PLUGIN_NAME_TEXTDOMAIN, false, dirname(\plugin_basename(__FILE__)) . '/languages');
+    },
+    10,
+    0
+);
+
 //: Check requirements
-if ( // Should be PHP 5.3.2 compatible!
-    (new Requirements())
+if ((new Requirements())
         ->php('7.4')
         ->wp('4.9')
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
         ->packages(['psr/container', 'psr/log-implementation'])
         ->passes()
-    ) {
-//    require_once __DIR__ . '/vendor/autoload.php';
+) {
+    //: Hook plugin state callback functions.
+    \register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');
+    \register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\deactivate');
+    \register_uninstall_hook(__FILE__, __NAMESPACE__ . '\\uninstall');
     \add_action('plugins_loaded', __NAMESPACE__ . '\\boot', 10, 0);
+    //: Support WP-CLI.
+    if (defined('WP_CLI') && \WP_CLI === true) {
+        registerCliCommands();
+    }
+} else {
+    \add_action('admin_notices', __NAMESPACE__ . '\\printRequirementsNotice');
 }
 
