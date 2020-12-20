@@ -61,7 +61,7 @@ if ((new Requirements())
         ->packages(['psr/container', 'psr/log-implementation'])
         ->passes()
 ) {
-    //: Hook plugin state callback functions.
+    //: Hook plugin activation callback functions.
     \register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');
     \register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\deactivate');
     \register_uninstall_hook(__FILE__, __NAMESPACE__ . '\\uninstall');
@@ -71,6 +71,6 @@ if ((new Requirements())
         registerCliCommands();
     }
 } else {
-    \add_action('admin_notices', __NAMESPACE__ . '\\printRequirementsNotice');
+    \add_action('admin_notices', __NAMESPACE__ . '\\printRequirementsNotice', 0, 0);
 }
 

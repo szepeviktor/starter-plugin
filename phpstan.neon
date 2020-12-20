@@ -1,10 +1,16 @@
 includes:
     - vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
-    level: 5
+    level: max
     inferPrivatePropertyTypeFromConstructor: true
+    bootstrapFiles:
+        - tests/phpstan/constants.php
     paths:
-        - ./
-    excludes_analyse:
-        - vendor/
-        - tests/
+        - plugin-name.php
+        - src/
+    ignoreErrors:
+        # Variable loaded from wp-includes/version.php
+        -
+            message: '#^Undefined variable: \$wp_version$#'
+            count: 1
+            path: src/Requirements.php

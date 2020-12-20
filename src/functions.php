@@ -10,6 +10,7 @@ use WP_CLI;
 function activate()
 {
     // FIXME Move reqs+deactivation here???
+    \deactivate_plugins([plugin_basename(__FILE__)], true);
 
     // Run database migrations, initialize WordPress options etc.
 }
