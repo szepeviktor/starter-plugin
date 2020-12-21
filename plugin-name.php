@@ -45,6 +45,8 @@ Config::init([
     'filePath' => __FILE__,
     'baseName' => \plugin_basename(__FILE__),
     'slug' => 'plugin-slug',
+    // Textdomain should be a literal string everywhere.
+    // Adding 'url' here makes it unfilterable.
 ]);
 
 //: Load translations
@@ -75,6 +77,7 @@ if ((new Requirements())
     \register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\deactivate');
     \register_uninstall_hook(__FILE__, __NAMESPACE__ . '\\uninstall');
     \add_action('plugins_loaded', __NAMESPACE__ . '\\boot', 10, 0);
+
     //: Support WP-CLI.
     if (defined('WP_CLI') && \WP_CLI === true) {
         registerCliCommands();
