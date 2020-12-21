@@ -34,19 +34,28 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-//: Define constants
-define('PLUGIN_NAME_TEXTDOMAIN', 'plugin-name');
-
 //: Load autoloader
 if (! class_exists(Requirements::class) && is_file(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
+//: Define constants
+Config::init([
+    'version' => '1.0.0',
+    'filePath' => __FILE__,
+    'baseName' => \plugin_basename(__FILE__),
+    'slug' => 'plugin-slug',
+]);
+
 //: Load translations
 \add_action(
     'init',
     function () {
-        \load_plugin_textdomain(\PLUGIN_NAME_TEXTDOMAIN, false, dirname(\plugin_basename(__FILE__)) . '/languages');
+        \load_plugin_textdomain(
+            'plugin-slug',
+            false,
+            dirname(Config::get('baseName')) . '/languages'
+        );
     },
     10,
     0
@@ -59,7 +68,7 @@ if ((new Requirements())
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
         ->packages(['psr/container', 'psr/log-implementation'])
-        ->passes()
+        ->met()
 ) {
     //: Hook plugin activation callback functions.
     \register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');
@@ -73,4 +82,3 @@ if ((new Requirements())
 } else {
     \add_action('admin_notices', __NAMESPACE__ . '\\printRequirementsNotice', 0, 0);
 }
-

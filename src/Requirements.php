@@ -13,7 +13,7 @@ use Composer\InstalledVersions;
 class Requirements
 {
     /** @var bool */
-    protected $passes;
+    protected $met;
 
     /**
      * @return void
@@ -21,15 +21,15 @@ class Requirements
     public function __construct()
     {
         // By default there is no problem.
-        $this->passes = true;
+        $this->met = true;
     }
 
     /**
      * @return bool
      */
-    public function passes(): bool
+    public function met(): bool
     {
-        return $this->passes;
+        return $this->met;
     }
 
     /**
@@ -38,7 +38,7 @@ class Requirements
      */
     public function php($minVersion)
     {
-        $this->passes = $this->passes && version_compare(PHP_VERSION, $minVersion, '>=');
+        $this->met = $this->met && version_compare(PHP_VERSION, $minVersion, '>=');
 
         return $this;
     }
@@ -53,7 +53,7 @@ class Requirements
         require ABSPATH . WPINC . '/version.php';
 
         /** @var string $wp_version */
-        $this->passes = $this->passes && version_compare($wp_version, $minVersion, '>=');
+        $this->met = $this->met && version_compare($wp_version, $minVersion, '>=');
 
         return $this;
     }
@@ -64,7 +64,7 @@ class Requirements
      */
     public function multisite($required)
     {
-        $this->passes = $this->passes && (!$required || \is_multisite());
+        $this->met = $this->met && (!$required || \is_multisite());
 
         return $this;
     }
@@ -75,7 +75,7 @@ class Requirements
      */
     public function plugins($plugins)
     {
-        $this->passes = $this->passes && array_reduce(
+        $this->met = $this->met && array_reduce(
             $plugins,
             function ($active, $plugin) {
                 return $active && $this->isPluginActive($plugin);
@@ -92,7 +92,7 @@ class Requirements
      */
     public function packages($packages)
     {
-        $this->passes = $this->passes && array_reduce(
+        $this->met = $this->met && array_reduce(
             $packages,
             function ($installed, $package) {
                 return $installed && InstalledVersions::isInstalled($package);

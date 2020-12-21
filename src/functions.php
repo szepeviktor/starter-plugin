@@ -10,7 +10,7 @@ use WP_CLI;
 function activate()
 {
     // FIXME Move reqs+deactivation here???
-    \deactivate_plugins([plugin_basename(__FILE__)], true);
+    \deactivate_plugins([Config::get('baseName')], true);
 
     // Run database migrations, initialize WordPress options etc.
 }
@@ -38,10 +38,10 @@ function printRequirementsNotice()
 {
     printf(
         '<div class="notice notice-error"><p>%1$s <a href="%2$s" target="_blank">%3$s</a> %4$s</p></div>',
-        \esc_html__('PluginName activation failed! Please read', PLUGIN_NAME_TEXTDOMAIN),
+        \esc_html__('PluginName activation failed! Please read', 'plugin-slug'),
         \esc_url('https://github.com/szepeviktor/small-project#readme'),
-        \esc_html__('the Installation instructions', PLUGIN_NAME_TEXTDOMAIN),
-        \esc_html__('for list of requirements.', PLUGIN_NAME_TEXTDOMAIN)
+        \esc_html__('the Installation instructions', 'plugin-slug'),
+        \esc_html__('for list of requirements.', 'plugin-slug')
     );
 }
 
