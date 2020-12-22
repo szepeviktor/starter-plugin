@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Company\WordPress\PluginName;
 
-class Config
+final class Config
 {
     /** @var array<string, mixed> */
     private static array $container;

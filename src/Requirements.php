@@ -112,6 +112,25 @@ class Requirements
     protected function isPluginActive($plugin)
     {
         return in_array($plugin, (array)\get_option('active_plugins', []), true)
-            || \is_plugin_active_for_network($plugin);
+            || $this->isPluginActiveForNetwork($plugin);
+    }
+
+    /**
+     * Copy of core's is_plugin_active_for_network()
+     *
+     * @param string $plugin
+     * @return bool
+     */
+    protected function isPluginActiveForNetwork($plugin) {
+        if (! is_multisite()) {
+            return false;
+        }
+
+        $plugins = get_site_option('active_sitewide_plugins');
+        if (isset($plugins[$plugin])) {
+            return true;
+        }
+
+        return false;
     }
 }
