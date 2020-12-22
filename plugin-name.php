@@ -58,14 +58,16 @@ if (Config::get('version') !== null) {
 }
 
 //: Define constants
-Config::init([
-    'version' => '1.0.0',
-    'filePath' => __FILE__,
-    'baseName' => \plugin_basename(__FILE__),
-    'slug' => 'plugin-slug',
-    // Textdomain should be a literal string everywhere.
-    // Adding 'url' here makes it unfilterable.
-]);
+Config::init(
+    [
+        'version' => '1.0.0',
+        'filePath' => __FILE__,
+        'baseName' => \plugin_basename(__FILE__),
+        'slug' => 'plugin-slug',
+        // Textdomain should be a literal string everywhere.
+        // Adding 'url' here makes it unfilterable.
+    ]
+);
 
 //: Load translations
 \add_action(
@@ -82,13 +84,14 @@ Config::init([
 );
 
 //: Check requirements
-if ((new Requirements())
-    ->php('7.4')
-    ->wp('4.9')
-    ->multisite(false)
-    ->plugins(['polylang/polylang.php'])
-    ->packages(['psr/container', 'psr/log-implementation'])
-    ->met()
+if (
+    (new Requirements())
+        ->php('7.4')
+        ->wp('4.9')
+        ->multisite(false)
+        ->plugins(['polylang/polylang.php'])
+        ->packages(['psr/container', 'psr/log-implementation'])
+        ->met()
 ) {
     //: Hook plugin activation callback functions.
     \register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');

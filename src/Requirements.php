@@ -27,7 +27,7 @@ class Requirements
     /**
      * @return bool
      */
-    public function met(): bool
+    public function met()
     {
         return $this->met;
     }
@@ -121,7 +121,8 @@ class Requirements
      * @param string $plugin
      * @return bool
      */
-    protected function isPluginActiveForNetwork($plugin) {
+    protected function isPluginActiveForNetwork($plugin)
+    {
         if (! \is_multisite()) {
             return false;
         }
