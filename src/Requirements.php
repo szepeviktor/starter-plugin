@@ -122,11 +122,11 @@ class Requirements
      * @return bool
      */
     protected function isPluginActiveForNetwork($plugin) {
-        if (! is_multisite()) {
+        if (! \is_multisite()) {
             return false;
         }
 
-        $plugins = get_site_option('active_sitewide_plugins');
+        $plugins = \get_site_option('active_sitewide_plugins');
         if (isset($plugins[$plugin])) {
             return true;
         }

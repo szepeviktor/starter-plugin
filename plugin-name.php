@@ -35,8 +35,26 @@ if (! defined('ABSPATH')) {
 }
 
 //: Load autoloader
-if (! class_exists(Requirements::class) && is_file(__DIR__ . '/vendor/autoload.php')) {
+if (! class_exists(Config::class) && is_file(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
+}
+
+//: Prevent double activation
+if (Config::get('version') !== null) {
+    \add_action(
+        'admin_notices',
+        function () {
+            printf(
+                '<div class="notice notice-warning"><p>%1$s<br>%2$s&nbsp;<code>%3$s</code></p></div>',
+                \esc_html__('PluginName already installed! Please deactivate all but one copy.', 'plugin-slug'),
+                \esc_html__('Current plugin path:', 'plugin-slug'),
+                \esc_html(__FILE__)
+            );
+        },
+        0,
+        0
+    );
+    return;
 }
 
 //: Define constants
@@ -65,12 +83,12 @@ Config::init([
 
 //: Check requirements
 if ((new Requirements())
-        ->php('7.4')
-        ->wp('4.9')
-        ->multisite(false)
-        ->plugins(['polylang/polylang.php'])
-        ->packages(['psr/container', 'psr/log-implementation'])
-        ->met()
+    ->php('7.4')
+    ->wp('4.9')
+    ->multisite(false)
+    ->plugins(['polylang/polylang.php'])
+    ->packages(['psr/container', 'psr/log-implementation'])
+    ->met()
 ) {
     //: Hook plugin activation callback functions.
     \register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');
