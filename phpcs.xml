@@ -2,5 +2,5 @@
 <ruleset name="SmallProjectCodingStyle">
     <description>This is how we code in this project.</description>
 
-    <rule ref="PSR12"/>
+    <rule ref="PSR12NeutronRuleset"/>
 </ruleset>

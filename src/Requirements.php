@@ -1,15 +1,24 @@
 <?php
 
 /**
- * Must be PHP 5.3.2 compatible.
+ * Requirements.php
+ *
+ * @package PluginPackage
+ * @author Your Name <username@example.com>
+ * @copyright 2019 Your Name or Company Name
+ * @license GPL-2.0-or-later http://www.gnu.org/licenses/gpl-2.0.txt
+ * @link https://example.com/plugin-name
  */
 
-// declare(strict_types=1);
+declare(strict_types=1);
 
 namespace Company\WordPress\PluginName;
 
 use Composer\InstalledVersions;
 
+/**
+ * Check plugin requirements.
+ */
 class Requirements
 {
     /** @var bool */
@@ -24,30 +33,19 @@ class Requirements
         $this->met = true;
     }
 
-    /**
-     * @return bool
-     */
-    public function met()
+    public function met(): bool
     {
         return $this->met;
     }
 
-    /**
-     * @param string $minVersion
-     * @return self
-     */
-    public function php($minVersion)
+    public function php(string $minVersion): self
     {
         $this->met = $this->met && version_compare(PHP_VERSION, $minVersion, '>=');
 
         return $this;
     }
 
-    /**
-     * @param string $minVersion
-     * @return self
-     */
-    public function wp($minVersion)
+    public function wp(string $minVersion): self
     {
         // Makes $wp_version available locally.
         require ABSPATH . WPINC . '/version.php';
@@ -58,11 +56,7 @@ class Requirements
         return $this;
     }
 
-    /**
-     * @param bool $required
-     * @return self
-     */
-    public function multisite($required)
+    public function multisite(bool $required): self
     {
         $this->met = $this->met && (!$required || \is_multisite());
 
@@ -71,13 +65,12 @@ class Requirements
 
     /**
      * @param list<string> $plugins
-     * @return self
      */
-    public function plugins($plugins)
+    public function plugins(array $plugins): self
     {
         $this->met = $this->met && array_reduce(
             $plugins,
-            function ($active, $plugin) {
+            function (bool $active, string $plugin): bool {
                 return $active && $this->isPluginActive($plugin);
             },
             true
@@ -88,13 +81,12 @@ class Requirements
 
     /**
      * @param list<string> $packages
-     * @return self
      */
-    public function packages($packages)
+    public function packages(array $packages): self
     {
         $this->met = $this->met && array_reduce(
             $packages,
-            function ($installed, $package) {
+            static function (bool $installed, string $package): bool {
                 return $installed && InstalledVersions::isInstalled($package);
             },
             true
@@ -105,11 +97,8 @@ class Requirements
 
     /**
      * Copy of core's is_plugin_active()
-     *
-     * @param string $plugin
-     * @return bool
      */
-    protected function isPluginActive($plugin)
+    protected function isPluginActive(string $plugin): bool
     {
         return in_array($plugin, (array)\get_option('active_plugins', []), true)
             || $this->isPluginActiveForNetwork($plugin);
@@ -117,11 +106,8 @@ class Requirements
 
     /**
      * Copy of core's is_plugin_active_for_network()
-     *
-     * @param string $plugin
-     * @return bool
      */
-    protected function isPluginActiveForNetwork($plugin)
+    protected function isPluginActiveForNetwork(string $plugin): bool
     {
         if (! \is_multisite()) {
             return false;

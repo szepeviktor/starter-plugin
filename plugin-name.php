@@ -1,5 +1,7 @@
 <?php
 
+//: This file needs PHP 7, will throw a fatal error on PHP 5.
+
 //: https://developer.wordpress.org/plugins/plugin-basics/header-requirements/#header-fields
 /**
  * Plugin Name
@@ -15,7 +17,7 @@
  * Description:       Description of the plugin.
  * Version:           1.0.0
  * Requires at least: 5.2
- * Requires PHP:      7.2
+ * Requires PHP:      7.4
  * Author:            Your Name
  * Author URI:        https://example.com
  * Text Domain:       plugin-slug
@@ -24,7 +26,7 @@
  */
 
 //: https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict
-// declare(strict_types=1);
+declare(strict_types=1);
 
 //: https://www.php-fig.org/psr/psr-4/#2-specification
 namespace Company\WordPress\PluginName;
@@ -43,7 +45,7 @@ if (! class_exists(Config::class) && is_file(__DIR__ . '/vendor/autoload.php')) 
 if (Config::get('version') !== null) {
     \add_action(
         'admin_notices',
-        function () {
+        static function () {
             printf(
                 '<div class="notice notice-warning"><p>%1$s<br>%2$s&nbsp;<code>%3$s</code></p></div>',
                 \esc_html__('PluginName already installed! Please deactivate all but one copy.', 'plugin-slug'),
@@ -72,7 +74,7 @@ Config::init(
 //: Load translations
 \add_action(
     'init',
-    function () {
+    static function () {
         \load_plugin_textdomain(
             'plugin-slug',
             false,
@@ -87,7 +89,7 @@ Config::init(
 if (
     (new Requirements())
         ->php('7.4')
-        ->wp('4.9')
+        ->wp('5.2')
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
         ->packages(['psr/container', 'psr/log-implementation'])

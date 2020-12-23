@@ -15,7 +15,9 @@
   },
   "require-dev": {
     "szepeviktor/phpstan-wordpress": "^0.7.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.5.0",
+    "phpcompatibility/php-compatibility": "^9.3"
   },
   "autoload": {
     "psr-4": {
@@ -26,13 +28,17 @@
     ]
   },
   "scripts": {
+    "php53compat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 5.3 plugin-name-php-5.3.php",
+    "phpcompat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 7.0 plugin-name.php src/",
+    "syntax": "find ./ -type f -not -path './vendor/*' -name '*.php' -print0|xargs -0 -L1 -P4 -- php -l",
+    "cs": "phpcs -p -s --parallel=4 plugin-name.php src/",
+    "phpstan": "phpstan analyze src/",
     "test": [
+      "@php53compat",
+      "@phpcompat",
       "@syntax",
       "@cs",
       "@phpstan"
-    ],
-    "syntax": "find ./ -type f -not -path './vendor/*' -name '*.php' -print0|xargs -0 -L1 -P4 -- php -l",
-    "cs": "phpcs -p --parallel=4 src/",
-    "phpstan": "phpstan analyze src/"
+    ]
   }
 }
