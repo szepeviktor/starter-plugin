@@ -79,6 +79,13 @@ class Requirements
         return $this;
     }
 
+    public function theme(string $parentTheme): self
+    {
+        $this->met = $this->met && \get_template() === $parentTheme;
+
+        return $this;
+    }
+
     /**
      * @param list<string> $packages
      */

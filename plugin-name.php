@@ -92,6 +92,7 @@ if (
         ->wp('5.2')
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
+        ->theme('Avada')
         ->packages(['psr/container', 'psr/log-implementation'])
         ->met()
 ) {

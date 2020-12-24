@@ -37,8 +37,8 @@
       "@php53compat",
       "@phpcompat",
       "@syntax",
-      "@cs",
-      "@phpstan"
+      "@phpstan",
+      "@cs"
     ]
   }
 }
