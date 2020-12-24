@@ -16,6 +16,11 @@ namespace Company\WordPress\PluginName;
 
 use WP_CLI;
 
+use function current_user_can;
+use function deactivate_plugins;
+use function esc_html__;
+use function esc_url;
+
 /**
  * @return void
  */
@@ -23,7 +28,7 @@ function activate()
 {
     // FIXME Move reqs+deactivation here???
     require_once ABSPATH . 'wp-admin/includes/plugin.php';
-    \deactivate_plugins([Config::get('baseName')], true);
+    deactivate_plugins([Config::get('baseName')], true);
 
     // Run database migrations, initialize WordPress options etc.
 }
@@ -49,12 +54,16 @@ function uninstall()
  */
 function printRequirementsNotice()
 {
+    if (! current_user_can('activate_plugins')) {
+        return;
+    }
+
     printf(
         '<div class="notice notice-error"><p>%1$s <a href="%2$s" target="_blank">%3$s</a> %4$s</p></div>',
-        \esc_html__('Plugin Name activation failed! Please read', 'plugin-slug'),
-        \esc_url('https://github.com/szepeviktor/small-project#readme'),
-        \esc_html__('the Installation instructions', 'plugin-slug'),
-        \esc_html__('for list of requirements.', 'plugin-slug')
+        esc_html__('Plugin Name activation failed! Please read', 'plugin-slug'),
+        esc_url('https://github.com/szepeviktor/small-project#readme'),
+        esc_html__('the Installation instructions', 'plugin-slug'),
+        esc_html__('for list of requirements.', 'plugin-slug')
     );
 }
 

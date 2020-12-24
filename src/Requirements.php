@@ -16,6 +16,11 @@ namespace Company\WordPress\PluginName;
 
 use Composer\InstalledVersions;
 
+use function get_option;
+use function get_site_option;
+use function get_template;
+use function is_multisite;
+
 /**
  * Check plugin requirements.
  */
@@ -48,7 +53,7 @@ class Requirements
     public function wp(string $minVersion): self
     {
         // Makes $wp_version available locally.
-        require ABSPATH . WPINC . '/version.php';
+        require \ABSPATH . \WPINC . '/version.php';
 
         /** @var string $wp_version */
         $this->met = $this->met && version_compare($wp_version, $minVersion, '>=');
@@ -58,7 +63,7 @@ class Requirements
 
     public function multisite(bool $required): self
     {
-        $this->met = $this->met && (!$required || \is_multisite());
+        $this->met = $this->met && (!$required || is_multisite());
 
         return $this;
     }
@@ -81,7 +86,7 @@ class Requirements
 
     public function theme(string $parentTheme): self
     {
-        $this->met = $this->met && \get_template() === $parentTheme;
+        $this->met = $this->met && get_template() === $parentTheme;
 
         return $this;
     }
@@ -107,7 +112,7 @@ class Requirements
      */
     protected function isPluginActive(string $plugin): bool
     {
-        return in_array($plugin, (array)\get_option('active_plugins', []), true)
+        return in_array($plugin, (array)get_option('active_plugins', []), true)
             || $this->isPluginActiveForNetwork($plugin);
     }
 
@@ -116,11 +121,11 @@ class Requirements
      */
     protected function isPluginActiveForNetwork(string $plugin): bool
     {
-        if (! \is_multisite()) {
+        if (! is_multisite()) {
             return false;
         }
 
-        $plugins = \get_site_option('active_sitewide_plugins');
+        $plugins = get_site_option('active_sitewide_plugins');
         if (isset($plugins[$plugin])) {
             return true;
         }

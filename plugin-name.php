@@ -31,6 +31,16 @@ declare(strict_types=1);
 //: https://www.php-fig.org/psr/psr-4/#2-specification
 namespace Company\WordPress\PluginName;
 
+use function add_action;
+use function current_user_can;
+use function esc_html;
+use function esc_html__;
+use function load_plugin_textdomain;
+use function plugin_basename;
+use function register_activation_hook;
+use function register_deactivation_hook;
+use function register_uninstall_hook;
+
 //: Prevent direct execution
 if (! defined('ABSPATH')) {
     exit;
@@ -46,9 +56,13 @@ if (Config::get('version') !== null) {
     \add_action(
         'admin_notices',
         static function () {
+            if (! \current_user_can('activate_plugins')) {
+                return;
+            }
+
             printf(
                 '<div class="notice notice-warning"><p>%1$s<br>%2$s&nbsp;<code>%3$s</code></p></div>',
-                \esc_html__('PluginName already installed! Please deactivate all but one copy.', 'plugin-slug'),
+                \esc_html__('Plugin Name already installed! Please deactivate all but one copy.', 'plugin-slug'),
                 \esc_html__('Current plugin path:', 'plugin-slug'),
                 \esc_html(__FILE__)
             );
