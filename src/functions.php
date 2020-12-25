@@ -54,6 +54,7 @@ function uninstall()
  */
 function printRequirementsNotice()
 {
+    // phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
     error_log('Plugin Name requirements are not met. Please read the Installation instructions.');
 
     if (! current_user_can('activate_plugins')) {

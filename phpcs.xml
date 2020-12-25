@@ -2,5 +2,10 @@
 <ruleset name="SmallProjectCodingStyle">
     <description>This is how we code in this project.</description>
 
-    <rule ref="PSR12NeutronRuleset"/>
+    <rule ref="PSR12NeutronRuleset">
+        <!-- NeutronStandard bug -->
+        <exclude name="NeutronStandard.Functions.TypeHint.NoReturnType"/>
+        <exclude name="ImportDetection.Imports.RequireImports"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
+    </rule>
 </ruleset>

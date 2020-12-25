@@ -3,7 +3,7 @@
 This repository helps you to get started with very small projects
 lasting few hours or few days.
 
-See :broom::woman: https://tomasvotruba.com/cleaning-lady-checklist/
+See :broom::woman::memo: https://tomasvotruba.com/cleaning-lady-checklist/
 
 1. Each project should have a separate repository and GitHub Issues
 1. Commits are made with the proper email address registered here on GitHub

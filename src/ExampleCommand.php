@@ -47,6 +47,7 @@ class ExampleCommand
      * @param list<string> $args
      * @param array<string, string> $assocArgs
      * @return void
+     * phpcs:disable
      */
     public function hello(array $args, array $assocArgs)
     {

@@ -56,7 +56,7 @@ class Requirements
         require \ABSPATH . \WPINC . '/version.php';
 
         /** @var string $wp_version */
-        $this->met = $this->met && version_compare($wp_version, $minVersion, '>=');
+        $this->met = $this->met && version_compare($wp_version, $minVersion, '>='); // phpcs:ignore
 
         return $this;
     }
@@ -126,7 +126,7 @@ class Requirements
         }
 
         $plugins = get_site_option('active_sitewide_plugins');
-        if (isset($plugins[$plugin])) {
+        if (isset($plugins[$plugin])) { // phpcs:ignore
             return true;
         }
 

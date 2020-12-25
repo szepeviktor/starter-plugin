@@ -54,5 +54,5 @@ if (version_compare(PHP_VERSION, '7.4', '>=')) {
         0
     );
     require_once ABSPATH . 'wp-admin/includes/plugin.php';
-    \deactivate_plugins(array(plugin_basename(__FILE__)), true);
+    deactivate_plugins(array(plugin_basename(__FILE__)), true);
 }
