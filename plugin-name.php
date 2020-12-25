@@ -1,6 +1,6 @@
 <?php
 
-//: This file needs PHP 7, will throw a fatal error on PHP 5.
+//: This file needs PHP 7, will throw a fatal error on PHP 5. For PHP 5 see plugin-name-php-5.3.php
 
 //: https://developer.wordpress.org/plugins/plugin-basics/header-requirements/#header-fields
 /**
@@ -56,13 +56,15 @@ if (Config::get('version') !== null) {
     \add_action(
         'admin_notices',
         static function () {
+            error_log('Plugin Name double activation. Please remove all but one copies. ' . __FILE__);
+
             if (! \current_user_can('activate_plugins')) {
                 return;
             }
 
             printf(
                 '<div class="notice notice-warning"><p>%1$s<br>%2$s&nbsp;<code>%3$s</code></p></div>',
-                \esc_html__('Plugin Name already installed! Please deactivate all but one copy.', 'plugin-slug'),
+                \esc_html__('Plugin Name already installed! Please deactivate all but one copies.', 'plugin-slug'),
                 \esc_html__('Current plugin path:', 'plugin-slug'),
                 \esc_html(__FILE__)
             );

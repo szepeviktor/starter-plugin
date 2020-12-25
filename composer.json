@@ -17,7 +17,8 @@
     "szepeviktor/phpstan-wordpress": "^0.7.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.5.0",
-    "phpcompatibility/php-compatibility": "^9.3"
+    "phpcompatibility/php-compatibility": "^9.3",
+    "php-stubs/wp-cli-stubs": "^2.4"
   },
   "autoload": {
     "psr-4": {

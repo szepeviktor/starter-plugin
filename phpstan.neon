@@ -5,11 +5,15 @@ parameters:
     inferPrivatePropertyTypeFromConstructor: true
     bootstrapFiles:
         - tests/phpstan/constants.php
+    scanFiles:
+        - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
     paths:
         - plugin-name.php
         - plugin-name-php-5.3.php
         - src/
     ignoreErrors:
+        # WP-CLI accepts a class as callable
+        - '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
         # Variable loaded from wp-includes/version.php
         -
             message: '#^Undefined variable: \$wp_version$#'
