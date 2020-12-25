@@ -46,7 +46,8 @@ if (version_compare(PHP_VERSION, '7.4', '>=')) {
     add_action(
         'admin_notices',
         function () {
-            $message = __('PluginName cannot run on PHP versions older than %1$s. Please contact your host and ask them to upgrade.', 'plugin-slug');
+            // translators: 1 - Minimum supported PHP version
+            $message = __('Plugin Name cannot run on PHP versions older than %1$s. Please contact your host and ask them to upgrade.', 'plugin-slug');
             printf('<div class="notice notice-error"><p>%1$s</p></div>', esc_html(sprintf($message, '7.4')));
         },
         0,

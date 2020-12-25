@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugin Name 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin-slug\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-12-25T16:47:45+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: plugin-slug\n"
+
+#. Plugin Name of the plugin
+msgid "Plugin Name loader with PHP 5.3 support"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://example.com/plugin-name"
+msgstr ""
+
+#. Description of the plugin
+msgid "Description of the plugin."
+msgstr ""
+
+#. Author of the plugin
+msgid "Your Name"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://example.com"
+msgstr ""
+
+#. translators: 1 - Minimum supported PHP version
+#: plugin-name-php-5.3.php:50
+msgid "Plugin Name cannot run on PHP versions older than %1$s. Please contact your host and ask them to upgrade."
+msgstr ""
+
+#: plugin-name.php:67
+msgid "Plugin Name already installed! Please deactivate all but one copies."
+msgstr ""
+
+#: plugin-name.php:68
+msgid "Current plugin path:"
+msgstr ""
+
+#: src/functions.php:65
+msgid "Plugin Name activation failed! Please read"
+msgstr ""
+
+#: src/functions.php:67
+msgid "the Installation instructions"
+msgstr ""
+
+#: src/functions.php:68
+msgid "for list of requirements."
+msgstr ""
