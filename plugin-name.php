@@ -97,7 +97,7 @@ if (
         ->packages(['psr/container', 'psr/log-implementation'])
         ->met()
 ) {
-    // Hook plugin activation callback functions.
+    // Hook plugin activation functions.
     register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');
     register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\deactivate');
     register_uninstall_hook(__FILE__, __NAMESPACE__ . '\\uninstall');

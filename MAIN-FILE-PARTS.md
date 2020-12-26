@@ -1,0 +1,24 @@
+# Ultimate WordPress Plugin Main File
+
+Source code in `plugin-name.php` needs PHP 7 which is present on
+[80% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
+
+Will throw a fatal error on PHP 5. For PHP 5 see `plugin-name-php-5.3.php`
+
+- [Header comment](https://developer.wordpress.org/plugins/plugin-basics/header-requirements/#header-fields)
+- [PHP strict types](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
+- [PHP namespaces](https://www.php-fig.org/psr/psr-4/#2-specification)
+- Prevent direct execution
+- Load autoloader
+- Prevent double activation
+- Define constant values in an immutable container
+- Load translations
+- Check requirements
+  - PHP and WordPress minimum version
+  - Multisite installation
+  - Other plugins
+  - Current theme
+  - Composer packages
+- Hook plugin activation functions
+- Support [WP-CLI](https://wp-cli.org/)
+- Display admin notice on error

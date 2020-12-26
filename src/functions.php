@@ -36,7 +36,7 @@ function loadTextDomain()
 function activate()
 {
     // FIXME Move reqs+deactivation here???
-    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    require_once \ABSPATH . 'wp-admin/includes/plugin.php';
     deactivate_plugins([Config::get('baseName')], true);
 
     // Run database migrations, initialize WordPress options etc.
