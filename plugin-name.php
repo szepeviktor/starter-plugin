@@ -29,6 +29,7 @@ namespace Company\WordPress\PluginName;
 
 use function add_action;
 use function current_user_can;
+use function deactivate_plugins;
 use function esc_html;
 use function esc_html__;
 use function plugin_basename;
@@ -108,5 +109,11 @@ if (
         registerCliCommands();
     }
 } else {
+    // Suppress "Plugin activated." notice.
+    unset($_GET['activate']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
     add_action('admin_notices', __NAMESPACE__ . '\\printRequirementsNotice', 0, 0);
+
+    require_once \ABSPATH . 'wp-admin/includes/plugin.php';
+    deactivate_plugins([Config::get('baseName')], true);
 }

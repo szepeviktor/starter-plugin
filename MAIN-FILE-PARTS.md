@@ -21,4 +21,6 @@ Will throw a fatal error on PHP 5. For PHP 5 see `plugin-name-php-5.3.php`
   - Composer packages
 - Hook plugin activation functions
 - Support [WP-CLI](https://wp-cli.org/)
-- Display admin notice on error
+- Display admin notice and deactivate plugin on error
+
+:bulb: Anything else goes into a separate file.
