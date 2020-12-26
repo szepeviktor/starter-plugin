@@ -31,7 +31,6 @@ use function add_action;
 use function current_user_can;
 use function esc_html;
 use function esc_html__;
-use function load_plugin_textdomain;
 use function plugin_basename;
 use function register_activation_hook;
 use function register_deactivation_hook;
@@ -85,18 +84,7 @@ Config::init(
 );
 
 // Load translations.
-add_action(
-    'init',
-    static function () {
-        load_plugin_textdomain(
-            'plugin-slug',
-            false,
-            dirname(Config::get('baseName')) . '/languages'
-        );
-    },
-    10,
-    0
-);
+add_action('init', __NAMESPACE__ . '\\loadTextDomain', 10, 0);
 
 // Check requirements.
 if (

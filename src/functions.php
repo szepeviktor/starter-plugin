@@ -20,6 +20,15 @@ use function current_user_can;
 use function deactivate_plugins;
 use function esc_html__;
 use function esc_url;
+use function load_plugin_textdomain;
+
+/**
+ * @return void
+ */
+function loadTextDomain()
+{
+    load_plugin_textdomain('plugin-slug', false, dirname(Config::get('baseName')) . '/languages');
+}
 
 /**
  * @return void
