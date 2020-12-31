@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Company\WordPress\PluginName;
 
+use Company\WordPress\PluginName\Cli\ExampleCommand;
 use WP_CLI;
 
 use function current_user_can;

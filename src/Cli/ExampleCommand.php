@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Company\WordPress\PluginName;
+namespace Company\WordPress\PluginName\Cli;
 
 use WP_CLI;
 
