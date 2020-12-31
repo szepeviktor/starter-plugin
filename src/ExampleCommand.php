@@ -29,15 +29,6 @@ class ExampleCommand
      * <name>
      * : The name of the person to greet.
      *
-     * [--type=<type>]
-     * : Whether or not to greet the person with success or error.
-     * ---
-     * default: success
-     * options:
-     *   - success
-     *   - error
-     * ---
-     *
      * ## EXAMPLES
      *
      *     wp example hello Newman
@@ -45,16 +36,11 @@ class ExampleCommand
      * @when after_wp_load
      *
      * @param list<string> $args
-     * @param array<string, string> $assocArgs
      * @return void
-     * phpcs:disable
      */
-    public function hello(array $args, array $assocArgs)
+    public function hello(array $args)
     {
-        list($name) = $args;
-
-        // Print the message with type.
-        $type = $assocArgs['type'];
-        WP_CLI::$type(sprintf('Hello, %1$s!', $name));
+        // Print the message.
+        WP_CLI::error(sprintf('Hello, %1$s!', $args[0]));
     }
 }

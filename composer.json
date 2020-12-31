@@ -12,7 +12,8 @@
     "php-stubs/wp-cli-stubs": "^2.4",
     "phpcompatibility/php-compatibility": "^9.3",
     "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.5.0",
-    "szepeviktor/phpstan-wordpress": "^0.7.0"
+    "szepeviktor/phpstan-wordpress": "^0.7.0",
+    "phpstan/phpstan-strict-rules": "^0.12.7"
   },
   "config": {
     "classmap-authoritative": true,
@@ -33,7 +34,7 @@
     "generate-pot": "wp i18n make-pot . languages/plugin-slug.pot --slug='plugin-slug' --package-name='Plugin Name' --file-comment=''",
     "php53compat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 5.3 plugin-name-php-5.3.php",
     "phpcompat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 7.0 plugin-name.php src/",
-    "phpstan": "phpstan analyze --quiet src/",
+    "phpstan": "phpstan analyze --no-progress src/",
     "syntax": "find ./ -type f -not -path './vendor/*' -name '*.php' -print0|xargs -0 -L1 -P4 -- php -l",
     "test": [
       "@php53compat",
