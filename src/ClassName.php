@@ -17,6 +17,6 @@ namespace Company\WordPress\PluginName;
 /**
  * Welcome to our nice source code!
  */
-class ClassName
+final class ClassName
 {
 }
