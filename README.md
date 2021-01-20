@@ -9,7 +9,7 @@ See :broom::woman::memo: https://tomasvotruba.com/cleaning-lady-checklist/
 1. Commits are made with the proper email address registered here on GitHub
 1. Add a (MIT) license in the Initial commit `LICENSE.md`
 1. Set repository Description and Website URL
-   with the top right <kbd>Edit</kbd> button
+   with the top right :gear: icon
 1. Include Installation and Usage in `README.md`
 1. Set editor/IDE configuration in `.editorconfig`
 1. List ignored files in `.gitignore`

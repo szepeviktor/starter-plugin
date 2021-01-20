@@ -43,7 +43,7 @@ function activate()
  */
 function deactivate()
 {
-    // Do something related to deactication.
+    // Do something related to deactivation.
 }
 
 /**
