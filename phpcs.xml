@@ -5,7 +5,9 @@
     <rule ref="PSR12NeutronRuleset">
         <!-- NeutronStandard bug -->
         <exclude name="NeutronStandard.Functions.TypeHint.NoReturnType"/>
+        <!-- https://github.com/sirbrillig/phpcs-import-detection/issues/45 -->
         <exclude name="ImportDetection.Imports.RequireImports"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
+        <!-- We write Composer packages -->
+        <exclude name="PEAR.Commenting.FileComment.InvalidPackage"/>
     </rule>
 </ruleset>

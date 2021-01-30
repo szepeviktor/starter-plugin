@@ -30,7 +30,7 @@
     ]
   },
   "scripts": {
-    "cs": "phpcs -s --parallel=4 plugin-name.php src/",
+    "cs": "phpcs -s --parallel=4 --runtime-set php_version 70000 plugin-name.php src/",
     "generate-pot": "wp i18n make-pot . languages/plugin-slug.pot --slug='plugin-slug' --package-name='Plugin Name' --file-comment=''",
     "php53compat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 5.3 plugin-name-php-5.3.php",
     "phpcompat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 7.0 plugin-name.php src/",

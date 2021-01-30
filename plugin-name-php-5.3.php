@@ -22,6 +22,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
+// Prevent direct execution.
 if (! defined('ABSPATH')) {
     exit;
 }

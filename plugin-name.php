@@ -80,6 +80,7 @@ Config::init(
         'baseName' => plugin_basename(__FILE__),
         'slug' => 'plugin-slug',
         // Textdomain should be a literal string everywhere.
+        // Textdomain needs to be the same as the WordPress.org slug.
         // Adding 'url' here makes it unfilterable. E.g. for CDN usage.
     ]
 );
