@@ -1,0 +1,31 @@
+name: "Integrate"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  tests:
+    name: "Tests"
+
+    runs-on: "ubuntu-20.04"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+
+    steps:
+      - name: "Set default PHP version"
+        run: "sudo update-alternatives --set php /usr/bin/php${{ matrix.php-version }}"
+
+      - name: "Checkout code"
+        uses: "actions/checkout@v2"
+
+      - name: "Install dependencies with Composer"
+        run: "composer update"
+
+      - name: "Execute tests"
+        run: "composer run-script test"
