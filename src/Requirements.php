@@ -16,6 +16,7 @@ namespace Company\WordPress\PluginName;
 
 use Composer\InstalledVersions;
 
+use function get_bloginfo;
 use function get_option;
 use function get_site_option;
 use function get_template;
@@ -52,11 +53,7 @@ class Requirements
 
     public function wp(string $minVersion): self
     {
-        // Makes $wp_version available locally.
-        require \ABSPATH . \WPINC . '/version.php';
-
-        /** @var string $wp_version */
-        $this->met = $this->met && version_compare($wp_version, $minVersion, '>='); // phpcs:ignore
+        $this->met = $this->met && version_compare(get_bloginfo('version'), $minVersion, '>='); // phpcs:ignore
 
         return $this;
     }

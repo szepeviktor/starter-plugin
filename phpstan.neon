@@ -5,8 +5,6 @@ parameters:
     level: max
     phpVersion: 70400
     inferPrivatePropertyTypeFromConstructor: true
-    bootstrapFiles:
-        - tests/phpstan/constants.php
     scanFiles:
         - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
     paths:
@@ -16,8 +14,3 @@ parameters:
     ignoreErrors:
         # WP-CLI accepts a class as callable
         - '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
-        # Variable loaded from wp-includes/version.php
-        -
-            message: '#^Undefined variable: \$wp_version$#'
-            count: 1
-            path: src/Requirements.php
