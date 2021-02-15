@@ -24,3 +24,13 @@ Will throw a fatal error on PHP 5. For PHP 5 see [`plugin-name-php-5.3.php`](/pl
 - Display admin notice and deactivate plugin on error
 
 :bulb: Anything else goes into a separate file.
+
+### What to avoid
+
+- Global constants
+- Global functions
+- Classes without namespace
+- Loading PHP files with `require`
+- Code with [side-effects](https://www.php-fig.org/psr/psr-1/#23-side-effects) outside the main file
+- Immediate execution without `add_action` in the main file
+- Conditional function or class definition
