@@ -1,5 +1,7 @@
 # Ultimate WordPress Plugin Main File
 
+_How to leave legacy technologies behind_
+
 Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 7 which is present on
 [80% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
 

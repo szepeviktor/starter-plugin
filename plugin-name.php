@@ -7,11 +7,11 @@
  * @author            Your Name <username@example.com>
  * @copyright         2019 Your Name or Company Name
  * @license           GPL-2.0-or-later http://www.gnu.org/licenses/gpl-2.0.txt
- * @link              https://example.com/plugin-name
+ * @link              https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md
  *
  * @wordpress-plugin
  * Plugin Name:       Plugin Name
- * Plugin URI:        https://example.com/plugin-name
+ * Plugin URI:        https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md
  * Description:       Description of the plugin.
  * Version:           1.0.0
  * Requires at least: 5.2
