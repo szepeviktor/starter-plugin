@@ -29,10 +29,10 @@ Will throw a fatal error on PHP 5. For PHP 5 see [`plugin-name-php-5.3.php`](/pl
 
 ### What to avoid
 
-- Global constants
-- Global functions
-- Classes without namespace
-- Loading PHP files with `require`
-- Code with [side-effects](https://www.php-fig.org/psr/psr-1/#23-side-effects) outside the main file
-- Immediate execution without `add_action` in the main file
-- Conditional function or class definition
+- :x: Global constants
+- :x: Global functions
+- :x: Classes without namespace
+- :x: Loading PHP files with `require`
+- :x: Code with [side-effects](https://www.php-fig.org/psr/psr-1/#23-side-effects) outside the main file
+- :x: Immediate execution without `add_action` in the main file
+- :x: Conditional function or class definitions
