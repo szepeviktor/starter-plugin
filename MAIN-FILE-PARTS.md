@@ -3,7 +3,7 @@
 _How to leave legacy technologies behind_
 
 Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 7 which is present on
-[87% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
+[90% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
 
 Will throw a fatal error on PHP 5. For PHP 5 see [`plugin-name-php-5.3.php`](/plugin-name-php-5.3.php)
 
