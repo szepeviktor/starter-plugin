@@ -27,7 +27,9 @@ use function load_plugin_textdomain;
  */
 function loadTextDomain()
 {
-    load_plugin_textdomain('plugin-slug', false, dirname(Config::get('baseName')) . '/languages');
+    /** @var string */
+    $pluginBasename = Config::get('baseName');
+    load_plugin_textdomain('plugin-slug', false, dirname($pluginBasename) . '/languages');
 }
 
 /**

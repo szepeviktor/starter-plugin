@@ -19,7 +19,7 @@ namespace Company\WordPress\PluginName;
  */
 final class Config
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, mixed>|null */
     private static $container;
 
     /**

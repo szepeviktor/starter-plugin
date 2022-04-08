@@ -13,6 +13,8 @@
         <exclude name="PEAR.Commenting.FileComment.InvalidPackage"/>
     </rule>
 
+    <rule ref="Squiz.Classes.ClassFileName"/>
+
     <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
         <properties>
             <property name="prefixes" type="array">

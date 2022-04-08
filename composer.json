@@ -8,17 +8,20 @@
     "composer-runtime-api": "^2.0"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
     "php-stubs/wp-cli-stubs": "^2.4",
     "phpcompatibility/php-compatibility": "^9.3",
-    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.5.0",
-    "szepeviktor/phpstan-wordpress": "^0.7.0",
-    "phpstan/phpstan-strict-rules": "^0.12.7"
+    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.6",
+    "szepeviktor/phpstan-wordpress": "^1.0",
+    "phpstan/phpstan-strict-rules": "^1.0"
   },
   "config": {
     "classmap-authoritative": true,
     "preferred-install": {
       "*": "dist"
+    },
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
   "autoload": {
