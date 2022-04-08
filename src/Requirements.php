@@ -122,7 +122,7 @@ class Requirements
             return false;
         }
 
-        $plugins = (array) get_site_option('active_sitewide_plugins');
+        $plugins = (array)get_site_option('active_sitewide_plugins');
         if (isset($plugins[$plugin])) { // phpcs:ignore
             return true;
         }
