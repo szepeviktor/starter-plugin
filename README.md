@@ -3,6 +3,8 @@
 This repository helps you to get started with very small projects
 lasting few hours or few days.
 
+:scroll: Please read the theory: [Ultimate WordPress Plugin Main File](/MAIN-FILE-PARTS.md)
+
 See :broom::woman::memo: https://web.archive.org/web/20200831185120/https://tomasvotruba.com/cleaning-lady-checklist/
 
 1. Each project should have a separate repository and GitHub Issues
