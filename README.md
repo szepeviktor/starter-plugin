@@ -5,8 +5,6 @@ lasting few hours or few days.
 
 :scroll: Please read the theory: [Ultimate WordPress Plugin Main File](/MAIN-FILE-PARTS.md)
 
-See :broom::woman::memo: https://web.archive.org/web/20200831185120/https://tomasvotruba.com/cleaning-lady-checklist/
-
 1. Each project should have a separate repository and GitHub Issues
 1. Commits are made with the proper email address registered here on GitHub
 1. Add a (MIT) license in the Initial commit `LICENSE.md`
@@ -27,6 +25,8 @@ See :broom::woman::memo: https://web.archive.org/web/20200831185120/https://toma
 1. Use Pull Requests to send code to the repository
 1. Review PR-s even when working alone
 1. Tag Releases!
+
+See :broom::woman::memo: https://web.archive.org/web/20200831185120/https://tomasvotruba.com/cleaning-lady-checklist/
 
 ### Installation
 
