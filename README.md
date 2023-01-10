@@ -14,7 +14,9 @@ lasting few hours or few days.
 1. Set editor/IDE configuration in `.editorconfig`
 1. List ignored files in `.gitignore`
    Thus do not keep downloaded or generated code in the repository
-1. List files not intended to be distributed (`export-ignore`) in ZIP archives in `.gitattributes`
+1. List files not intended to be distributed (`export-ignore`) in ZIP archives
+   and list [generated files and documentation](https://github.com/github/linguist/blob/master/docs/overrides.md#summary)
+   in `.gitattributes`
 1. Choose a coding standard (PSR-12, WPCS, Laravel) in `phpcs.xml` (include `Generic.PHP.RequireStrictTypes`)
 1. Keep source code written in PHP in `/src` directory
    as per [PSR-4](https://www.php-fig.org/psr/psr-4/)
