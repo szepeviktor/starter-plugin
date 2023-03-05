@@ -21,7 +21,7 @@ jobs:
             run: "sudo update-alternatives --set php /usr/bin/php${{ matrix.php-version }}"
         -
             name: "Checkout repository"
-            uses: "actions/checkout@v2"
+            uses: "actions/checkout@v3"
         -
             name: "Install dependencies"
             run: "composer update"

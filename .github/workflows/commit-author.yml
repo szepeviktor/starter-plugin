@@ -1,28 +1,30 @@
 name: "Check commit authors on GitHub"
 
-on: pull_request
+on:
+    pull_request: null
 
 jobs:
-  commit-author:
-    name: "Check commit authors"
-    # No Debian https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      # https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
-      - name: "Get commit email addresses and query GitHub API"
-        run: |
-          Check_author()
-          {
-            local author="$1"
-            local github_api_url="https://api.github.com/search/users"
-            echo "Checking ${author} ..."
-            curl -s -G --data-urlencode "q=type:user in:email ${author}" "${github_api_url}" \
-              | grep -Fx '  "total_count": 1,'
-          }
-          git show --no-patch --pretty="format:%ae" "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" \
-            | sort -u \
-            | while read -r author; do Check_author "${author}"; done
+    commit_authors:
+        name: "Commit authors"
+        # No Debian https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+        runs-on: "ubuntu-latest"
+        steps:
+        -
+            name: "Checkout repository"
+            uses: "actions/checkout@v3"
+            with:
+                fetch-depth: 0
+
+        -
+            name: "Query commit email addresses from GitHub API"
+            run: |
+                Check_author() {
+                    local AUTHOR="$1"
+                    local GITHUB_API_URL="https://api.github.com/search/users"
+                    echo "Checking ${AUTHOR} ..."
+                    curl -s -G --data-urlencode "q=type:user in:email ${AUTHOR}" "${GITHUB_API_URL}" \
+                        | grep -F -x '  "total_count": 1,'
+                }
+                git show --no-patch --pretty="format:%ae" "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" \
+                    | sort -u \
+                    | while read -r AUTHOR; do Check_author "${AUTHOR}"; done
