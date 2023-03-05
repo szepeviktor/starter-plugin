@@ -7,6 +7,12 @@ Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 7 which is presen
 
 Will throw a fatal error on PHP 5. For PHP 5 see [`plugin-name-php-5.3.php`](/plugin-name-php-5.3.php)
 
+## Support my work
+
+Please consider sponsoring me monthly if you use my packages in an agency.
+
+[![Sponsor](https://github.com/szepeviktor/.github/raw/master/.github/assets/github-like-sponsor-button.svg)](https://github.com/sponsors/szepeviktor)
+
 ## Parts of plugin main file
 
 - [Header comment](https://developer.wordpress.org/plugins/plugin-basics/header-requirements/#header-fields)
