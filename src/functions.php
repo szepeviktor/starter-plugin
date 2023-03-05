@@ -71,7 +71,7 @@ function printRequirementsNotice()
     printf(
         '<div class="notice notice-error"><p>%1$s <a href="%2$s" target="_blank">%3$s</a> %4$s</p></div>',
         esc_html__('Plugin Name activation failed! Please read', 'plugin-slug'),
-        esc_url('https://github.com/szepeviktor/small-project#installation'),
+        esc_url('https://github.com/szepeviktor/starter-plugin#installation'),
         esc_html__('the Installation instructions', 'plugin-slug'),
         esc_html__('for list of requirements.', 'plugin-slug')
     );

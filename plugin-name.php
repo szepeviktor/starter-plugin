@@ -3,15 +3,15 @@
 /**
  * Plugin Name
  *
- * @package           company/smallproject
+ * @package           company/starter-plugin
  * @author            Your Name <username@example.com>
  * @copyright         2019 Your Name or Company Name
  * @license           GPL-2.0-or-later http://www.gnu.org/licenses/gpl-2.0.txt
- * @link              https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md
+ * @link              https://github.com/szepeviktor/starter-plugin
  *
  * @wordpress-plugin
  * Plugin Name:       Plugin Name
- * Plugin URI:        https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md
+ * Plugin URI:        https://github.com/szepeviktor/starter-plugin
  * Description:       Description of the plugin.
  * Version:           1.0.0
  * Requires at least: 5.2
