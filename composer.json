@@ -1,7 +1,7 @@
 {
   "name": "company/smallproject",
   "type": "wordpress-plugin",
-  "description": "Small PHP fixes or enhancements.",
+  "description": "Starter plugin from Viktor",
   "license": "MIT",
   "require": {
     "php": "^7.4",

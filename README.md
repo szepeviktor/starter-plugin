@@ -1,41 +1,50 @@
-# Small PHP fixes or enhancements
+# Ultimate WordPress Plugin Main File
 
-This repository helps you to get started with very small projects
-lasting few hours or few days.
+_How to leave legacy technologies behind_
 
-:scroll: Please read the theory: [Ultimate WordPress Plugin Main File](/MAIN-FILE-PARTS.md)
+Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 7 which is present on more than
+[90% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
 
-1. Each project should have a separate repository and GitHub Issues
-1. Commits are made with the proper email address registered here on GitHub
-1. Add a (MIT) license in the Initial commit `LICENSE.md`
-1. Set repository Description and Website URL
-   with the top right :gear: icon
-1. Include Installation and Usage in `README.md`
-1. Set editor/IDE configuration in `.editorconfig`
-1. List ignored files in `.gitignore`
-   Thus do not keep downloaded or generated code in the repository
-1. List files not intended to be distributed (`export-ignore`) in ZIP archives
-   and list [generated files and documentation](https://github.com/github/linguist/blob/master/docs/overrides.md#summary)
-   in `.gitattributes`
-1. Choose a coding standard (PSR-12, WPCS, Laravel) in `phpcs.xml` (include `Generic.PHP.RequireStrictTypes`)
-1. Keep source code written in PHP in `/src` directory
-   as per [PSR-4](https://www.php-fig.org/psr/psr-4/)
-1. Use namespaces!
-1. Keep class files free of [side-effects](https://www.php-fig.org/psr/psr-1/#23-side-effects)
-   e.g. `if`, `new` etc.
-1. Use Composer for class and function autoloading
-1. Use Pull Requests to send code to the repository
-1. Review PR-s even when working alone
-1. Tag Releases!
+Will throw a fatal error on PHP 5. For PHP 5 see [`plugin-name-php-5.3.php`](/plugin-name-php-5.3.php)
 
-See :broom::woman::memo: https://web.archive.org/web/20200831185120/https://tomasvotruba.com/cleaning-lady-checklist/
+- [Header comment](https://developer.wordpress.org/plugins/plugin-basics/header-requirements/#header-fields)
+- [PHP strict types](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
+- [PHP namespaces](https://www.php-fig.org/psr/psr-4/#2-specification)
+- Prevent direct execution
+- Load autoloader
+- Prevent double activation
+- Define constant values in an immutable container
+- Load translations
+- Check requirements
+  - PHP and WordPress minimum version
+  - Multisite installation
+  - Other plugins
+  - Current theme
+  - Composer packages
+- Hook plugin activation functions
+- Support [WP-CLI](https://wp-cli.org/)
+- Display admin notice and deactivate plugin on error
 
-### Installation
+:bulb: Anything else goes into a separate file.
+
+## What to avoid
+
+- :x: Global constants
+- :x: Global functions
+- :x: Classes without namespace
+- :x: Loading PHP files with `require`
+- :x: Code with [side-effects](https://www.php-fig.org/psr/psr-1/#23-side-effects) outside the main file
+- :x: Immediate execution without `add_action` in the main file
+- :x: Conditional function or class definitions
+
+---
+
+## Installation
 
 1. Get the plugin ZIP from ...
 1. Upload to Plugins / Add new / Upload `/wp-admin/plugin-install.php?tab=upload`
 
-### Usage
+## Usage
 
 1. Adjust settings ...
 1. Or add a hook `add_filter('project/enable', '__return_true');` to `functions.php`
