@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name
+ * Plugin Name 1
  *
  * @package           company/smallproject
  * @author            Your Name <username@example.com>
