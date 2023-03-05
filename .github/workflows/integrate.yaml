@@ -1,31 +1,34 @@
 name: "Integrate"
 
 on:
-  pull_request:
-  push:
-    branches:
-      - "master"
+    push:
+        branches:
+        - "master"
+    pull_request: null
 
 jobs:
-  tests:
-    name: "Tests"
-
-    runs-on: "ubuntu-20.04"
-
-    strategy:
-      matrix:
-        php-version:
-          - "7.4"
-
-    steps:
-      - name: "Set default PHP version"
-        run: "sudo update-alternatives --set php /usr/bin/php${{ matrix.php-version }}"
-
-      - name: "Checkout code"
-        uses: "actions/checkout@v2"
-
-      - name: "Install dependencies with Composer"
-        run: "composer update"
-
-      - name: "Execute tests"
-        run: "composer run-script test"
+    tests:
+        name: "Tests"
+        strategy:
+            matrix:
+                include:
+                -
+                    os-version: "ubuntu-20.04"
+                    php-version: "7.4"
+                -
+                    os-version: "ubuntu-22.04"
+                    php-version: "8.0"
+        runs-on: "${{ matrix.os-version }}"
+        steps:
+        -
+            name: "Set default PHP version"
+            run: "sudo update-alternatives --set php /usr/bin/php${{ matrix.php-version }}"
+        -
+            name: "Checkout repository"
+            uses: "actions/checkout@v2"
+        -
+            name: "Install dependencies"
+            run: "composer update"
+        -
+            name: "Execute tests"
+            run: "composer run test"

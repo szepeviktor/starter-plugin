@@ -7,6 +7,8 @@ Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 7 which is presen
 
 Will throw a fatal error on PHP 5. For PHP 5 see [`plugin-name-php-5.3.php`](/plugin-name-php-5.3.php)
 
+## Parts of plugin main file
+
 - [Header comment](https://developer.wordpress.org/plugins/plugin-basics/header-requirements/#header-fields)
 - [PHP strict types](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
 - [PHP namespaces](https://www.php-fig.org/psr/psr-4/#2-specification)
