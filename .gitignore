@@ -1,9 +1,6 @@
-# IDE
-*.swp
-*.kate-swp
-
 # OS
 .DS_Store
+Thumbs.db
 
 # Packages
 /composer.lock
