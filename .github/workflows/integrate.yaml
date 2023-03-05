@@ -11,14 +11,10 @@ jobs:
         name: "Tests"
         strategy:
             matrix:
-                include:
-                -
-                    os-version: "ubuntu-20.04"
-                    php-version: "7.4"
-                -
-                    os-version: "ubuntu-22.04"
-                    php-version: "8.0"
-        runs-on: "${{ matrix.os-version }}"
+                php-version:
+                - "7.4"
+                - "8.0"
+        runs-on: "ubuntu-20.04"
         steps:
         -
             name: "Set default PHP version"

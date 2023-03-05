@@ -29,7 +29,7 @@ function loadTextDomain()
 {
     /** @var string */
     $pluginBasename = Config::get('baseName');
-    load_plugin_textdomain('plugin-slug', false, dirname($pluginBasename) . '/languages');
+    load_plugin_textdomain('plugin-slug', false, sprintf('%s/%s', dirname($pluginBasename), 'languages'));
 }
 
 /**

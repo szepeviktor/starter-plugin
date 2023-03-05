@@ -37,6 +37,8 @@ use function register_activation_hook;
 use function register_deactivation_hook;
 use function register_uninstall_hook;
 
+// phpcs:disable PSR12NeutronRuleset.Strings.ConcatenationUsage
+
 // Prevent direct execution.
 if (! defined('ABSPATH')) {
     exit;

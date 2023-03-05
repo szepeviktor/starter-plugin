@@ -4,14 +4,14 @@
   "description": "Starter plugin from Viktor",
   "license": "MIT",
   "require": {
-    "php": "^7.4",
+    "php": "~7.4.0 || ~8.0.0",
     "composer-runtime-api": "^2.2"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "php-stubs/wp-cli-stubs": "^2.4",
     "phpcompatibility/php-compatibility": "^9.3",
-    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.6",
+    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.8",
     "szepeviktor/phpstan-wordpress": "^1.0",
     "phpstan/phpstan-strict-rules": "^1.0"
   },
