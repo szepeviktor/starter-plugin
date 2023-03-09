@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="SmallProjectCodingStyle">
+<ruleset name="PluginCodingStyle">
     <description>This is how we code in this project.</description>
 
     <config name="minimum_supported_wp_version" value="4.9"/>

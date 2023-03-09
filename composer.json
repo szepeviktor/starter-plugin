@@ -1,5 +1,5 @@
 {
-  "name": "company/smallproject",
+  "name": "company/plugin",
   "type": "wordpress-plugin",
   "description": "Starter plugin from Viktor",
   "license": "MIT",
