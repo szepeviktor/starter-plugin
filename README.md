@@ -47,6 +47,9 @@ Please consider sponsoring me monthly if you use my packages in an agency.
 
 ---
 
+![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/bbpress)
+![Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/bbpress)
+
 ## Installation
 
 1. Get the plugin ZIP from ...
