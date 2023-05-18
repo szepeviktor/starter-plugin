@@ -36,6 +36,7 @@ if (version_compare(PHP_VERSION, '7.4', '>=')) {
     add_action(
         'init',
         function () {
+            // Read https://make.wordpress.org/core/2016/07/06/i18n-improvements-in-4-6/
             load_plugin_textdomain(
                 'plugin-slug',
                 false,

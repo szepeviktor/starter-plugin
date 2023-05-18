@@ -88,6 +88,7 @@ Config::init(
 );
 
 // Load translations.
+// Read https://make.wordpress.org/core/2016/07/06/i18n-improvements-in-4-6/
 add_action('init', __NAMESPACE__ . '\\loadTextDomain', 10, 0);
 
 // Check requirements.
