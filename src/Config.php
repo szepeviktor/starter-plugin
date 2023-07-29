@@ -38,12 +38,12 @@ final class Config
     /**
      * @return mixed
      */
-    public static function get(string $key)
+    public static function get(string $name)
     {
-        if (! isset(self::$container) || ! array_key_exists($key, self::$container)) {
+        if (! isset(self::$container) || ! array_key_exists($name, self::$container)) {
             return null;
         }
 
-        return self::$container[$key];
+        return self::$container[$name];
     }
 }

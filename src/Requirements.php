@@ -60,7 +60,7 @@ class Requirements
 
     public function multisite(bool $required): self
     {
-        $this->met = $this->met && (!$required || is_multisite());
+        $this->met = $this->met && (! $required || is_multisite());
 
         return $this;
     }
