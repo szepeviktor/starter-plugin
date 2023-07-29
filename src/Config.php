@@ -5,7 +5,7 @@
  *
  * @package company/plugin
  * @author Your Name <username@example.com>
- * @copyright 2019 Your Name or Company Name
+ * @copyright 2023 Your Name or Company Name
  * @license GPL-2.0-or-later http://www.gnu.org/licenses/gpl-2.0.txt
  * @link https://example.com/plugin-name
  */
