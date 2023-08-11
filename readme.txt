@@ -3,8 +3,8 @@
 Contributors: your-wp-org-userid  
 Donate link: https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/  
 Tags: tag1, tag2  
-Requires at least: 4.9  
-Tested up to: 6.2  
+Requires at least: 6.3  
+Tested up to: 6.3  
 Stable tag: 1.0.0  
 Requires PHP: 7.4  
 License: GPLv2 or later  

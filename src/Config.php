@@ -5,7 +5,7 @@
  *
  * @package company/plugin
  * @author Your Name <username@example.com>
- * @copyright 2019 Your Name or Company Name
+ * @copyright 2023 Your Name or Company Name
  * @license GPL-2.0-or-later http://www.gnu.org/licenses/gpl-2.0.txt
  * @link https://example.com/plugin-name
  */
@@ -38,12 +38,12 @@ final class Config
     /**
      * @return mixed
      */
-    public static function get(string $key)
+    public static function get(string $name)
     {
-        if (! isset(self::$container) || ! array_key_exists($key, self::$container)) {
+        if (! isset(self::$container) || ! array_key_exists($name, self::$container)) {
             return null;
         }
 
-        return self::$container[$key];
+        return self::$container[$name];
     }
 }

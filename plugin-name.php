@@ -5,7 +5,7 @@
  *
  * @package           company/plugin
  * @author            Your Name <username@example.com>
- * @copyright         2019 Your Name or Company Name
+ * @copyright         2023 Your Name or Company Name
  * @license           GPL-2.0-or-later http://www.gnu.org/licenses/gpl-2.0.txt
  * @link              https://github.com/szepeviktor/starter-plugin
  *
@@ -14,7 +14,7 @@
  * Plugin URI:        https://github.com/szepeviktor/starter-plugin
  * Description:       Description of the plugin.
  * Version:           1.0.0
- * Requires at least: 5.2
+ * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            Your Name
  * Author URI:        https://example.com
@@ -71,6 +71,7 @@ if (Config::get('version') !== null) {
         0,
         0
     );
+
     return;
 }
 
@@ -95,7 +96,7 @@ add_action('init', __NAMESPACE__ . '\\loadTextDomain', 10, 0);
 if (
     (new Requirements())
         ->php('7.4')
-        ->wp('5.2')
+        ->wp('6.3')
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
         ->theme('Avada')

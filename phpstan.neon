@@ -6,7 +6,6 @@ parameters:
     phpVersion: 70400
     paths:
         - plugin-name.php
-        - plugin-name-php-5.3.php
         - src/
     scanFiles:
         - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
