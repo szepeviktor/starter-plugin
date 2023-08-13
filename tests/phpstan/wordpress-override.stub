@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @return bool
+ * @phpstan-impure
+ */
+function have_posts()
+{
+}
+
+class WP_Query
+{
+    /**
+     * @return bool True if posts are available, false if end of loop.
+     * @phpstan-impure
+     */
+    public function have_posts();
+}
+
+/**
+ * @param   string $selector The field name or field key.
+ * @param   mixed  $post_id The post ID where the value is saved. Defaults to the current post.
+ * @return  bool
+ * @phpstan-impure
+ */
+function have_rows($selector, $post_id = false)
+{
+}
+

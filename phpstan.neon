@@ -9,6 +9,8 @@ parameters:
         - src/
     scanFiles:
         - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
+    stubFiles:
+        - tests/phpstan/wordpress-override.stub
     level: max
     inferPrivatePropertyTypeFromConstructor: true
     ignoreErrors:
