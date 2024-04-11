@@ -16,6 +16,7 @@
  * Version:           1.0.0
  * Requires at least: 6.3
  * Requires PHP:      7.4
+ * Requires Plugins:  parent-plugin-slug
  * Author:            Your Name
  * Author URI:        https://example.com
  * Text Domain:       plugin-slug
