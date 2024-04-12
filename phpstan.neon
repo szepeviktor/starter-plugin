@@ -15,4 +15,4 @@ parameters:
     inferPrivatePropertyTypeFromConstructor: true
     ignoreErrors:
         # WP-CLI accepts a class as callable
-        - '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
+        #- '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'
