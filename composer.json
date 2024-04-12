@@ -11,7 +11,7 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "php-stubs/wp-cli-stubs": "^2.4",
     "phpcompatibility/php-compatibility": "^9.3",
-    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.10",
+    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.11",
     "szepeviktor/phpstan-wordpress": "^1.0",
     "phpstan/phpstan-strict-rules": "^1.0"
   },
