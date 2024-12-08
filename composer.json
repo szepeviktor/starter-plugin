@@ -33,7 +33,7 @@
     "cs": "phpcs -s --parallel=4 --runtime-set php_version 70000 plugin-name.php src/",
     "generate-pot": "wp i18n make-pot . languages/plugin-slug.pot --slug='plugin-slug' --package-name='Plugin Name' --file-comment=''",
     "phpcompat": "phpcs --standard=PHPCompatibility --runtime-set testVersion 7.0 plugin-name.php src/",
-    "phpstan": "phpstan analyze --no-progress src/",
+    "phpstan": "phpstan analyze --no-progress -v src/",
     "syntax": "find ./ -type f -not -path './vendor/*' -name '*.php' -print0|xargs -0 -L1 -P4 -- php -l",
     "test": [
       "@syntax",
