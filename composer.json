@@ -27,10 +27,7 @@
   "autoload": {
     "psr-4": {
       "Company\\WordPress\\PluginName\\": "src/"
-    },
-    "files": [
-      "src/functions.php"
-    ]
+    }
   },
   "scripts": {
     "cs": "phpcs -s --parallel=4 --runtime-set php_version 70000 plugin-name.php src/",
