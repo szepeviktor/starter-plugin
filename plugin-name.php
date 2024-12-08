@@ -89,7 +89,7 @@ Config::init(
 
 // Load translations.
 // Read https://make.wordpress.org/core/2016/07/06/i18n-improvements-in-4-6/
-add_action('init', __NAMESPACE__ . '\\loadTextDomain', 10, 0);
+add_action('init', [Plugin::class, 'loadTextDomain'], 10, 0);
 
 // Check requirements.
 if (
@@ -103,20 +103,20 @@ if (
         ->met()
 ) {
     // Hook plugin activation functions.
-    register_activation_hook(__FILE__, __NAMESPACE__ . '\\activate');
-    register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\deactivate');
-    register_uninstall_hook(__FILE__, __NAMESPACE__ . '\\uninstall');
-    add_action('plugins_loaded', __NAMESPACE__ . '\\boot', 10, 0);
+    register_activation_hook(__FILE__, [Plugin::class, 'activate']);
+    register_deactivation_hook(__FILE__, [Plugin::class, 'deactivate']);
+    register_uninstall_hook(__FILE__, [Plugin::class, 'uninstall']);
+    add_action('plugins_loaded', [Plugin::class, 'boot'], 10, 0);
 
     // Support WP-CLI.
     if (defined('WP_CLI') && \WP_CLI === true) {
-        registerCliCommands();
+        Plugin::registerCliCommands();
     }
 } else {
     // Suppress "Plugin activated." notice.
     unset($_GET['activate']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-    add_action('admin_notices', __NAMESPACE__ . '\\printRequirementsNotice', 0, 0);
+    add_action('admin_notices', [Plugin::class, 'printRequirementsNotice'], 0, 0);
 
     require_once \ABSPATH . 'wp-admin/includes/plugin.php';
     deactivate_plugins([Config::get('baseName')], true);
