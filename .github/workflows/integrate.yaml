@@ -14,12 +14,14 @@ jobs:
                 php-version:
                 - "7.4"
                 - "8.0"
-        # 20.04 has PHP 7.4 and 8.0
-        runs-on: "ubuntu-20.04"
+        runs-on: "ubuntu-24.04"
         steps:
         -
-            name: "Set default PHP version"
-            run: "sudo update-alternatives --set php /usr/bin/php${{ matrix.php-version }}"
+            name: "Set up PHP"
+            uses: "shivammathur/setup-php@v2"
+            with:
+                php-version: "${{ matrix.php-version }}"
+                coverage: "none"
         -
             name: "Checkout repository"
             uses: "actions/checkout@v4"
