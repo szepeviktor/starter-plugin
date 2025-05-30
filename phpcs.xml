@@ -11,6 +11,8 @@
         <exclude name="ImportDetection.Imports.RequireImports"/>
         <!-- We write Composer packages -->
         <exclude name="PEAR.Commenting.FileComment.InvalidPackage"/>
+        <!-- No constant import -->
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
     </rule>
 
     <rule ref="Squiz.Classes.ClassFileName"/>
