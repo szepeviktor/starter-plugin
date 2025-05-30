@@ -4,7 +4,7 @@
   "description": "Starter plugin from Viktor",
   "license": "MIT",
   "require": {
-    "php": "~7.4.0 || ~8.0.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0",
     "composer-runtime-api": "^2.2"
   },
   "require-dev": {
