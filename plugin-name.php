@@ -13,7 +13,7 @@
  * Description:       Description of the plugin.
  * Version:           1.0.0
  * Requires at least: 6.3
- * Requires PHP:      7.4
+ * Requires PHP:      8.1
  * Requires Plugins:  parent-plugin-slug
  * Author:            Your Name
  * Author URI:        https://example.com
@@ -94,7 +94,7 @@ add_action('init', [Plugin::class, 'loadTextDomain'], 10, 0);
 // Check requirements.
 if (
     (new Requirements())
-        ->php('7.4')
+        ->php('8.1')
         ->wp('6.3')
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
