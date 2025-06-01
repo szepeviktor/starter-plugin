@@ -12,6 +12,10 @@ return RectorConfig::configure()
     ])
     ->withImportNames()
     ->withPhpSets()
+    ->withPreparedSets(
+        deadCode: true,
+        typeDeclarations: true,
+    )
     ->withSkip([
         ClosureToArrowFunctionRector::class,
         FirstClassCallableRector::class,

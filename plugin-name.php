@@ -53,7 +53,7 @@ if (! class_exists(Config::class) && is_file(__DIR__ . '/vendor/autoload.php')) 
 if (Config::get('version') !== null) {
     add_action(
         'admin_notices',
-        static function () {
+        static function (): void {
             // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
             error_log('Plugin Name double activation. Please remove all but one copies. ' . __FILE__);
 
