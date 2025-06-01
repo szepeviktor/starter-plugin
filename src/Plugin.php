@@ -68,7 +68,7 @@ class Plugin
      */
     public static function printRequirementsNotice()
     {
-        // phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
+        // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
         error_log('Plugin Name requirements are not met. Please read the Installation instructions.');
 
         if (! current_user_can('activate_plugins')) {

@@ -40,6 +40,7 @@ use function register_uninstall_hook;
 
 // Prevent direct execution.
 if (! defined('ABSPATH')) {
+    // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
     exit;
 }
 
@@ -53,7 +54,7 @@ if (Config::get('version') !== null) {
     add_action(
         'admin_notices',
         static function () {
-            // phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
+            // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
             error_log('Plugin Name double activation. Please remove all but one copies. ' . __FILE__);
 
             if (! current_user_can('activate_plugins')) {
@@ -118,6 +119,7 @@ if (
 
     add_action('admin_notices', [Plugin::class, 'printRequirementsNotice'], 0, 0);
 
+    /** @phpstan-ignore-next-line requireOnce.fileNotFound */
     require_once \ABSPATH . 'wp-admin/includes/plugin.php';
     deactivate_plugins([Config::get('baseName')], true);
 }
