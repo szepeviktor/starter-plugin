@@ -99,6 +99,6 @@ class Plugin
      */
     public static function boot()
     {
-        new ClassName();
+        $classInstance = new ClassName();
     }
 }
