@@ -3,7 +3,7 @@ includes:
     - vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
     editorUrlTitle: '%%relFile%%:%%line%%'
-    phpVersion: 70400
+    phpVersion: 80100
     paths:
         - plugin-name.php
         - src/

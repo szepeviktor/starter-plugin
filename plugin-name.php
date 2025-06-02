@@ -13,7 +13,7 @@
  * Description:       Description of the plugin.
  * Version:           1.0.0
  * Requires at least: 6.3
- * Requires PHP:      7.4
+ * Requires PHP:      8.1
  * Requires Plugins:  parent-plugin-slug
  * Author:            Your Name
  * Author URI:        https://example.com
@@ -40,6 +40,7 @@ use function register_uninstall_hook;
 
 // Prevent direct execution.
 if (! defined('ABSPATH')) {
+    // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
     exit;
 }
 
@@ -52,8 +53,8 @@ if (! class_exists(Config::class) && is_file(__DIR__ . '/vendor/autoload.php')) 
 if (Config::get('version') !== null) {
     add_action(
         'admin_notices',
-        static function () {
-            // phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
+        static function (): void {
+            // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
             error_log('Plugin Name double activation. Please remove all but one copies. ' . __FILE__);
 
             if (! current_user_can('activate_plugins')) {
@@ -94,7 +95,7 @@ add_action('init', [Plugin::class, 'loadTextDomain'], 10, 0);
 // Check requirements.
 if (
     (new Requirements())
-        ->php('7.4')
+        ->php('8.1')
         ->wp('6.3')
         ->multisite(false)
         ->plugins(['polylang/polylang.php'])
@@ -118,6 +119,7 @@ if (
 
     add_action('admin_notices', [Plugin::class, 'printRequirementsNotice'], 0, 0);
 
+    /** @phpstan-ignore-next-line requireOnce.fileNotFound */
     require_once \ABSPATH . 'wp-admin/includes/plugin.php';
     deactivate_plugins([Config::get('baseName')], true);
 }

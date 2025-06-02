@@ -29,46 +29,31 @@ class Plugin
     {
     }
 
-    /**
-     * @return void
-     */
-    public static function loadTextDomain()
+    public static function loadTextDomain(): void
     {
         /** @var string */
         $pluginBasename = Config::get('baseName');
         load_plugin_textdomain('plugin-slug', false, sprintf('%s/%s', dirname($pluginBasename), 'languages'));
     }
 
-    /**
-     * @return void
-     */
-    public static function activate()
+    public static function activate(): void
     {
         // Run database migrations, initialize WordPress options etc.
     }
 
-    /**
-     * @return void
-     */
-    public static function deactivate()
+    public static function deactivate(): void
     {
         // Do something related to deactivation.
     }
 
-    /**
-     * @return void
-     */
-    public static function uninstall()
+    public static function uninstall(): void
     {
         // Remove custom database tables, WordPress options etc.
     }
 
-    /**
-     * @return void
-     */
-    public static function printRequirementsNotice()
+    public static function printRequirementsNotice(): void
     {
-        // phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
+        // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
         error_log('Plugin Name requirements are not met. Please read the Installation instructions.');
 
         if (! current_user_can('activate_plugins')) {
@@ -84,21 +69,17 @@ class Plugin
         );
     }
 
-    /**
-     * @return void
-     */
-    public static function registerCliCommands()
+    public static function registerCliCommands(): void
     {
         WP_CLI::add_command('example', ExampleCommand::class);
     }
 
     /**
      * Start!
-     *
-     * @return void
      */
-    public static function boot()
+    public static function boot(): void
     {
-        new ClassName();
+        $classInstance = new ClassName();
+        $classInstance->do();
     }
 }
