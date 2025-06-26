@@ -25,8 +25,7 @@ use function is_multisite;
  */
 class Requirements
 {
-    /** @var bool */
-    protected $met;
+    protected bool $met;
 
     /**
      * @return void

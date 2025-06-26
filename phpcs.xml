@@ -11,6 +11,8 @@
         <exclude name="ImportDetection.Imports.RequireImports"/>
         <!-- We write Composer packages -->
         <exclude name="PEAR.Commenting.FileComment.InvalidPackage"/>
+        <!-- No constant import -->
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
     </rule>
 
     <rule ref="Squiz.Classes.ClassFileName"/>
@@ -19,36 +21,6 @@
         <properties>
             <property name="prefixes" type="array">
                 <element value="Company"/>
-            </property>
-        </properties>
-    </rule>
-
-    <rule ref="Squiz.PHP.DiscouragedFunctions">
-        <properties>
-            <!--
-            * ini_set() environment belongs to the server
-            * env() does not work in production (artisan config:cache)
-            * eval() is dangerous!
-            * print and print_r() disturb templating, see wilderborn/partyline
-            * dump(), dd(), var_dump() - consider using barryvdh/laravel-debugbar
-            * error_log() has special use
-            * define() is for global constants
-            Defaults: https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Squiz/Sniffs/PHP/DiscouragedFunctionsSniff.php
-            See https://github.com/WordPress/WordPress-Coding-Standards/blob/develop/WordPress/Sniffs/PHP/DiscouragedPHPFunctionsSniff.php
-            -->
-            <property name="forbiddenFunctions" type="array">
-                <element key="ini_set" value="null"/>
-                <element key="env" value="null"/>
-                <element key="list" value="null"/>
-                <element key="extract" value="null"/>
-                <element key="eval" value="null"/>
-                <element key="print" value="null"/>
-                <element key="print_r" value="null"/>
-                <element key="dump" value="null"/>
-                <element key="dd" value="null"/>
-                <element key="var_dump" value="null"/>
-                <element key="error_log" value="null"/>
-                <element key="define" value="null"/>
             </property>
         </properties>
     </rule>

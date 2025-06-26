@@ -34,9 +34,8 @@ class ExampleCommand
      * @when after_wp_load
      *
      * @param list<string> $args
-     * @return void
      */
-    public function hello(array $args)
+    public function hello(array $args): void
     {
         // Print the message.
         WP_CLI::error(sprintf('Hello, %1$s!', $args[0]));

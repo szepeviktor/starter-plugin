@@ -2,8 +2,8 @@
 
 _How to leave legacy technologies behind_
 
-Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 7 which is present on more than
-[90% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
+Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 8 which is present on more than
+[50% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
 
 ## Support my work
 

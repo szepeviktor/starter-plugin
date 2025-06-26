@@ -18,13 +18,12 @@ namespace Company\WordPress\PluginName;
 final class Config
 {
     /** @var array<string, mixed>|null */
-    private static $container;
+    private static ?array $container = null;
 
     /**
      * @param array<string, mixed> $container
-     * @return void
      */
-    public static function init(array $container)
+    public static function init(array $container): void
     {
         if (isset(self::$container)) {
             return;
