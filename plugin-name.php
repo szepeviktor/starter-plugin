@@ -50,7 +50,7 @@ if (! class_exists(Config::class) && is_file(__DIR__ . '/vendor/autoload.php')) 
 }
 
 // Prevent double activation.
-if (Config::get('version') !== null) {
+if (Config::isInitialized()) {
     add_action(
         'admin_notices',
         static function (): void {
@@ -119,7 +119,6 @@ if (
 
     add_action('admin_notices', [Plugin::class, 'printRequirementsNotice'], 0, 0);
 
-    /** @phpstan-ignore-next-line requireOnce.fileNotFound */
     require_once \ABSPATH . 'wp-admin/includes/plugin.php';
     deactivate_plugins([Config::get('baseName')], true);
 }

@@ -14,14 +14,21 @@ namespace Company\WordPress\PluginName;
 
 /**
  * Immutable configuration.
+ *
+ * @phpstan-type ConfigShape array{
+ *     version: string,
+ *     filePath: string,
+ *     baseName: string,
+ *     slug: string
+ * }
  */
 final class Config
 {
-    /** @var array<string, mixed>|null */
+    /** @var ConfigShape|null */
     private static ?array $container = null;
 
     /**
-     * @param array<string, mixed> $container
+     * @param ConfigShape $container
      */
     public static function init(array $container): void
     {
@@ -32,13 +39,21 @@ final class Config
         self::$container = $container;
     }
 
+    public static function isInitialized(): bool
+    {
+        return isset(self::$container);
+    }
+
     /**
-     * @return mixed
+     * @template TKey of key-of<ConfigShape>
+     *
+     * @param TKey $name
+     * @return ConfigShape[TKey]
      */
     public static function get(string $name)
     {
         if (! isset(self::$container) || ! array_key_exists($name, self::$container)) {
-            return null;
+            throw new \LogicException('Config is not initialized or the requested key does not exist.');
         }
 
         return self::$container[$name];
