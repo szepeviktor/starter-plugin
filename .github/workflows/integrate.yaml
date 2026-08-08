@@ -28,5 +28,10 @@ jobs:
             name: "Install dependencies"
             run: "composer update --no-interaction"
         -
+            name: "Run plugin check"
+            uses: "wordpress/plugin-check-action@v1"
+            with:
+                exclude-directories: ".github,vendor"
+        -
             name: "Execute tests"
             run: "composer run test --no-interaction"
