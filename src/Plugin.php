@@ -37,11 +37,15 @@ class Plugin
 
     public static function activate(): void
     {
+        Cron::schedule();
+
         // Run database migrations, initialize WordPress options etc.
     }
 
     public static function deactivate(): void
     {
+        Cron::unschedule();
+
         // Do something related to deactivation.
     }
 
@@ -78,6 +82,8 @@ class Plugin
      */
     public static function boot(): void
     {
+        (new Cron())->register();
+
         $classInstance = new ClassName();
         $classInstance->do();
     }
