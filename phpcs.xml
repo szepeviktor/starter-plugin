@@ -24,4 +24,11 @@
             </property>
         </properties>
     </rule>
+    <rule ref="PSR12NeutronRuleset.Security.SuperglobalKeys">
+        <properties>
+            <property name="allowedSuperglobalKeys" type="array">
+                <element value="_GET[activate]"/>
+            </property>
+        </properties>
+    </rule>
 </ruleset>
