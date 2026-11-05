@@ -50,7 +50,7 @@ if (wp_installing()) {
     return;
 }
 
-// Load autoloader.
+// Allow a site-wide autoloader to load Config before loading the bundled autoloader.
 if (! class_exists(Config::class) && is_file(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
