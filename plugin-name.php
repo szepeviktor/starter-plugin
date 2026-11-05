@@ -35,6 +35,7 @@ use function plugin_basename;
 use function register_activation_hook;
 use function register_deactivation_hook;
 use function register_uninstall_hook;
+use function wp_installing;
 
 // phpcs:disable PSR12NeutronRuleset.Strings.ConcatenationUsage
 
@@ -42,6 +43,11 @@ use function register_uninstall_hook;
 if (! defined('ABSPATH')) {
     // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
     exit;
+}
+
+// Skip plugin initialization during WordPress installation.
+if (wp_installing()) {
+    return;
 }
 
 // Load autoloader.
