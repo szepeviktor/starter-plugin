@@ -2,8 +2,8 @@
 
 _How to leave legacy technologies behind_
 
-Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 8 which is present on more than
-[50% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
+Source code in [`plugin-name.php`](/plugin-name.php) needs PHP 8 which is present on approximately
+[80% of WordPress installations](https://wordpress.org/about/stats/#php_versions).
 
 ## Support my work
 
@@ -42,6 +42,12 @@ Please consider sponsoring me monthly if you use my packages in an agency.
 - :x: Code with [side-effects](https://www.php-fig.org/psr/psr-1/#23-side-effects) outside the main file
 - :x: Immediate execution without `add_action` in the main file
 - :x: Conditional function or class definitions
+
+## Build process
+
+```bash
+composer dump-autoload --optimize --no-dev
+```
 
 ---
 
