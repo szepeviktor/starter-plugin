@@ -28,10 +28,25 @@ Please consider sponsoring me monthly if you use my packages in an agency.
   - Current theme
   - Composer packages
 - Hook plugin activation functions
+- Declare WooCommerce HPOS compatibility on `before_woocommerce_init`
+- Start plugin functionality on `woocommerce_init`
 - Support [WP-CLI](https://wp-cli.org/)
 - Display admin notice and deactivate plugin on error
 
 :bulb: Anything else goes into a separate file.
+
+## WooCommerce extensions
+
+The main file includes `Requires Plugins: woocommerce` and example WooCommerce
+version headers. Set `WC requires at least` to your minimum supported version and
+`WC tested up to` to the version you have actually tested before releasing.
+
+The main file registers `Plugin::declareWooCommerceCompatibility()` on
+`before_woocommerce_init`, which runs before `woocommerce_init`. Register this
+callback before `Plugin::boot()` runs. The declaration uses the main plugin file
+path from `Config`, and the starter declares HPOS support because it does not
+access order storage. Keep that declaration accurate when adding order handling.
+Use WooCommerce CRUD APIs to support both legacy and HPOS order storage.
 
 ## What to avoid
 

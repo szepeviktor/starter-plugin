@@ -8,6 +8,7 @@ parameters:
         - plugin-name.php
         - src/
     scanFiles:
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
         - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
     stubFiles:
         - tests/phpstan/wordpress-override.stub

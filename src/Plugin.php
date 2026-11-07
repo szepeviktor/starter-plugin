@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Company\WordPress\PluginName;
 
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use Company\WordPress\PluginName\Cli\ExampleCommand;
 use WP_CLI;
 
@@ -77,8 +78,17 @@ class Plugin
         WP_CLI::add_command('example', ExampleCommand::class);
     }
 
+    public static function declareWooCommerceCompatibility(): void
+    {
+        if (! class_exists(FeaturesUtil::class)) {
+            return;
+        }
+
+        FeaturesUtil::declare_compatibility('custom_order_tables', Config::get('filePath'), true);
+    }
+
     /**
-     * Start!
+     * Start after WooCommerce initialization.
      */
     public static function boot(): void
     {

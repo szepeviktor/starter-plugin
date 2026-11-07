@@ -14,7 +14,9 @@
  * Version:           1.0.0
  * Requires at least: 6.3
  * Requires PHP:      8.1
- * Requires Plugins:  parent-plugin-slug
+ * Requires Plugins:  woocommerce
+ * WC requires at least: 8.2
+ * WC tested up to:   8.2
  * Author:            Your Name
  * Author URI:        https://example.com
  * Text Domain:       plugin-slug
@@ -104,7 +106,7 @@ if (
         ->php('8.1')
         ->wp('6.3')
         ->multisite(false)
-        ->plugins(['polylang/polylang.php'])
+        ->plugins(['woocommerce/woocommerce.php'])
         ->theme('Avada')
         ->packages(['psr/container', 'psr/log-implementation'])
         ->met()
@@ -113,7 +115,8 @@ if (
     register_activation_hook(__FILE__, [Plugin::class, 'activate']);
     register_deactivation_hook(__FILE__, [Plugin::class, 'deactivate']);
     register_uninstall_hook(__FILE__, [Plugin::class, 'uninstall']);
-    add_action('plugins_loaded', [Plugin::class, 'boot'], 10, 0);
+    add_action('before_woocommerce_init', [Plugin::class, 'declareWooCommerceCompatibility'], 10, 0);
+    add_action('woocommerce_init', [Plugin::class, 'boot'], 10, 0);
 
     // Support WP-CLI.
     if (defined('WP_CLI') && \WP_CLI === true) {
