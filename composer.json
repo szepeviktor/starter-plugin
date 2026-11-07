@@ -10,6 +10,7 @@
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "php-stubs/wp-cli-stubs": "^2.4",
+    "php-stubs/woocommerce-stubs": "^8.2",
     "phpcompatibility/php-compatibility": "^9.3",
     "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^1.2",
     "szepeviktor/phpstan-wordpress": "^2.0",
